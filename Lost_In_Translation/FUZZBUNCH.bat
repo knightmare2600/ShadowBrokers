@@ -1,5 +1,5 @@
 :: offensivly bad Batch file to start up the NSA Metasploit Style program
-:: fb.py AKA FUZZBUNCH by @knightmare2600
+:: fb.py AKA FUZZBUNCH by @knightmare2600 
 @ECHO OFF
 CLS
 
