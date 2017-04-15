@@ -1,0 +1,81 @@
+
+Question: Why....?
+
+Answer: Because I like challenges, and if all you are allowed on a Pentest is a Kali or ParrotOS CD, it is possible
+
+NB: You will need a function X11 server, either locally or over the network to do this install.
+
+## Step 1: Gather the required part of wine. Assuming Debian based OS as your host
+
+sudo apt-get instal wine winbind
+
+## Step 2: Run Wine's regedit to set up your PATH. You will thank me later for this...
+
+snowden@nsa[~]$ wine regedit.exe
+
+HKCU > Environment > New Key 
+Name: PATH
+Value c:\\windows;c:\\windows\\system;C:\\Python26;C:\\nsa\windows\\fuzzbunch
+
+NB: This will take a while, as .wine will get set up
+
+## Step 3: Create your directory structure. This actually isn't needed, but makes it lean. You can use Z: drive which wine maps to your home dir.
+
+snowden@nsa[~]$ mkdir ~/.wine/drive_c/nsa
+
+Step 4: Assuming your Wine install C:\nsa folder existed. copythe EQGRP windows folder from Lost_In_Translation there:
+
+snowden@nsa[~]$ cp -R ~/EQGRP_Lost_in_Translation/windows/ ./nsa/
+
+Step 5: install Python 2.6 inside wine (yeah, I know, 2017 right?):
+
+snowden@nsa[~]$ wine msiexec /i python-2.6.msi
+
+Step 6: Then pywin32 which is an EXE.
+
+snowden@nsa[~]$ wine pywin32-219.win32-py2.6.exe
+
+Step 7: Once this is all installed, execute a cmd.exe inside wine
+
+snowden@nsa[~]$ wine cmd.exe
+Wine CMD Version 5.1.2600 (1.6.2)
+
+Step 8: Change to C: drive and fix the pywin32 installer
+
+Z:\home\snowden\>c:
+C:\>cd Python26\Scripts
+C:\Python26>cd scripts
+
+C:\Python26\Scripts> python pywin32_postinstall.py -install
+
+Step 9: Fix the ListenPost folder and optionally copy my batch file in.
+
+C:\Python26\Scripts> cd \nsa\windows
+
+C:\nsa\windows> mkdir listeningposts
+
+## Step 10
+
+C:\nsa\windows> python fb.py
+
+--[ Version 3.5.1
+
+[*] Loading Plugins
+[*] Initializing Fuzzbunch v3.5.1
+[*] Adding Global Variables
+[+] Set ResourcesDir => D:\DSZOPSDISK\Resources
+[+] Set Color => True
+[+] Set ShowHiddenParameters => False
+[+] Set NetworkTimeout => 60
+[+] Set LogDir => D:\logs
+[*] Autorun ON
+:
+: continued
+:
+[+] Set FbStorage => C:\nsa\windows\storage
+
+[*] Retargetting Session
+
+[?] Default Target IP Address [] :
+
+I made it load in Wine, executing payloads and such are left up to you!
