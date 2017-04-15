@@ -1,0 +1,2 @@
+777ab6d9a9aac254ab8e933fbbb453839aa23a12eb1a2dadbdf3d9ac26fdf164  python-2.6.msi
+5ff41106a7c0af4f3ef3c7c44c2f33019b5a654e9a634306051bc590ced9ee78  pywin32-219.win32-py2.6.exe
