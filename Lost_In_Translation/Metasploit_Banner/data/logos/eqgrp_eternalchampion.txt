@@ -24,4 +24,4 @@
 **                                                                           **
 *******************************************************************************
 [+] Exploit Framework Load successful! Use FORCE to continue
-[+} CORE loaded with statud code 0x0031337
+[+} CORE loaded with status code 0x0031337
