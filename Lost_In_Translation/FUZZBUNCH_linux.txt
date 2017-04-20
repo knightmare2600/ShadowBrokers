@@ -15,7 +15,7 @@ snowden@nsa[~]$ wine regedit.exe
 
 HKCU > Environment > New Key 
 Name: PATH
-Value c:\\windows;c:\\windows\\system;C:\\Python26;C:\\nsa\windows\\fuzzbunch
+Value c:\\windows;c:\\windows\\system;C:\\Python26;C:\\nsa\\fuzzbunch
 
 NB: This will take a while, as .wine will get set up
 
