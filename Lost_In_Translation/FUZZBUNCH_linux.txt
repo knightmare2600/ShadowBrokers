@@ -15,7 +15,7 @@ snowden@nsa[~]$ wine regedit.exe
 
 HKCU > Environment > New Key 
 Name: PATH
-Value c:\\windows;c:\\windows\\system;C:\\Python26;C:\\nsa\windows\\fuzzbunch
+Value c:\\windows;c:\\windows\\system;C:\\Python26;C:\\nsa\\fuzzbunch
 
 NB: This will take a while, as .wine will get set up
 
@@ -80,7 +80,6 @@ C:\nsa\windows> python fb.py
 
 I made it load in Wine, executing payloads and such are left up to you!
 
-
 ## Step 11++
 
 if you want to run GUI in Java :
@@ -99,4 +98,14 @@ java -jar Start.jar
 make an alias nsa-gui="wine cmd < ~/.wine/drive_c/nsa/windows/FUZZBUNCH-GUI.bat"
 
 NSA-sk1d be like
+
+=======
+## Spet ++
+
+to further automate the execution you can create a file ~/.wine/drive_c/nsa/windows/FUZZBUNCH.bat with:
+cd c:\nsa\windows
+c:
+python fb.py
+
+and create an alias nsa='wine cmd /C ~/.wine/drive_c/nsa/windows/FUZZBUNCH.bat ; killall wineserver'
 
