@@ -79,3 +79,24 @@ C:\nsa\windows> python fb.py
 [?] Default Target IP Address [] :
 
 I made it load in Wine, executing payloads and such are left up to you!
+
+
+## Step 11++
+
+if you want to run GUI in Java :
+
+download portable java executables from http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jre-8u131-windows-i586.tar.gz
+
+extract archive to ~/.wine/drive_c/
+
+with regedit add to PATH : C:\jre1.8.0_131\bin;C:\jre1.8.0_131\lib;C:\jre1.8.0_131
+
+create ~/.wine/drive_c/nsa/windows/FUZZBUNCH-GUI.bat with:
+c:
+cd c:\nsa\windows
+java -jar Start.jar
+
+make an alias nsa-gui="wine cmd < ~/.wine/drive_c/nsa/windows/FUZZBUNCH-GUI.bat"
+
+NSA-sk1d be like
+
