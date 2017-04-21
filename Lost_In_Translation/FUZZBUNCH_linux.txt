@@ -15,7 +15,7 @@ snowden@nsa[~]$ wine regedit.exe
 
 HKCU > Environment > New Key 
 Name: PATH
-Value c:\\windows;c:\\windows\\system;C:\\Python26;C:\\nsa\\fuzzbunch
+Value c:\\windows;c:\\windows\\system;C:\\Python26;C:\\nsa\windows\fuzzbunch
 
 NB: This will take a while, as .wine will get set up
 
@@ -25,7 +25,32 @@ snowden@nsa[~]$ mkdir ~/.wine/drive_c/nsa
 
 Step 4: Assuming your Wine install C:\nsa folder existed. copythe EQGRP windows folder from Lost_In_Translation there:
 
-snowden@nsa[~]$ cp -R ~/EQGRP_Lost_in_Translation/windows/ ./nsa/
+snowden@nsa[~]$ cp -R ~/EQGRP_Lost_in_Translation/windows ~/.wine/drive_c/nsa/
+
+The directory structure should be:
+
+snowden@nsa[~/.wine/drive_c]$ tree -d -L 2 ./nsa/
+./nsa/
+|-- LOGS
+|   `-- test
+`-- windows
+    |-- Bin
+    |-- D:\\Logs\\
+    |-- exploits
+    |-- fuzzbunch
+    |-- implants
+    |-- lib
+    |-- listeningpost
+    |-- listeningposts
+    |-- payloads
+    |-- Resources
+    |-- specials
+    |-- storage
+    |-- touches
+    `-- UserConfiguration
+
+17 directories
+
 
 Step 5: install Python 2.6 inside wine (yeah, I know, 2017 right?):
 
