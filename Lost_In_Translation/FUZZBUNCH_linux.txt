@@ -52,13 +52,15 @@ snowden@nsa[~/.wine/drive_c]$ tree -d -L 2 ./nsa/
 17 directories
 
 
-Step 5: install Python 2.6 inside wine (yeah, I know, 2017 right?):
+Step 5: Install Python 2.6, PyWin32 & java inside wine (yeah, I know, 2017 right?):
 
 snowden@nsa[~]$ wine msiexec /i python-2.6.msi
 
-Step 6: Then pywin32 which is an EXE.
-
 snowden@nsa[~]$ wine pywin32-219.win32-py2.6.exe
+
+snowden@nsa[~]$ wine jre-6u45-windows-i586.exe 
+
+Step 6: run wincfg and set a mapped drive D: to  ~/.wine/drive_c/nsa/windows
 
 Step 7: Once this is all installed, execute a cmd.exe inside wine
 
@@ -79,7 +81,7 @@ C:\Python26\Scripts> cd \nsa\windows
 
 C:\nsa\windows> mkdir listeningposts
 
-## Step 10
+Step 10: execute FUZZBUNCH
 
 C:\nsa\windows> python fb.py
 
