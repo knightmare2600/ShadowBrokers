@@ -1,0 +1,16 @@
+51f20278adbd499f5634a64cce83aef9a1683c0e  Bootable_UCSInstall_UCOS_8.0.3.23900-5.sgn.iso
+0b0abbe002274112ce60ba3c50ff7d9018b53293  UCSInstall_UCOS_UNRST_8.5.1.10000-26.sgn.iso
+
+To install:
+
+1. Download UCSInstall_UCOS_UNRST_8.5.1.10000-26.sgn.iso
+
+2. Extract isolinu.bin from the \isolinux folder on disk
+
+3. Inject as a boot sector using PowerISO or IMGBURN
+
+4.Deploy OVF to host of your choice
+
+5. Attach ISO and boot form it
+
+6. Install as normal, providing credentials where required
